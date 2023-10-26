@@ -1,0 +1,15 @@
+Algorithm Fill_in_display_array
+Variables:
+    Arr[10]: Array of Integer
+    i : Integer
+Begin
+    For i <- 1 To 10 Do
+        Write (" Enter a value: ", i)
+        Read(Arr[i])
+    End For
+
+    Write (" The array values are : \NL")
+    For i <- 1 To 10 Do
+        Write (Arr[i], " ")
+    End For
+End
