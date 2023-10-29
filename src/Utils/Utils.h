@@ -2,7 +2,7 @@
 #define EFREIPSEUDOCODE_UTILS_H
 
 #include <stdbool.h>
-
+#include <stddef.h>
 
 /**
  * Permet de savoir si un charactère est une lettre
