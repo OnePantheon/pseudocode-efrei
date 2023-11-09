@@ -325,7 +325,9 @@ static Token *get_string(LexingState *ls) {
     //créer le token
     union TokenValue val;
     val.as_string = str_val;
-    return create_token(TokenType_String, val);
+    Token *r = create_token(TokenType_String, val);
+    r->str_on_heap = true;
+    return r;
 }
 
 
