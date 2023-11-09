@@ -94,6 +94,7 @@ int main_interpreter_lexer(int argc, const char *argv[]) {
             destroy_token(t);       //les token sont libéré ici car on ne fait rien avec. Dans l'interpréteur final il faudra sûrement les stocker dans un tableau, puis les envoyer au parser
         }
         printf("\n");
+        free(buffer);
 
         if(c == EOF) break;
     }
