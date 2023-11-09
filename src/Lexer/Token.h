@@ -99,6 +99,9 @@ typedef struct TokenStruct {
 void print_token(Token *t);
 //Allouer un token sur le heap et renvoyer son pointeur
 Token *create_token(enum TokenType type, union TokenValue value);
+
+Token *copy_token(Token *token);
+
 //supprimer un toker
 void destroy_token(Token *t);
 

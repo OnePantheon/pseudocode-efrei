@@ -4,6 +4,7 @@
 
 #include <malloc.h>
 #include <stdio.h>
+#include <string.h>
 
 void print_token(Token *t) {
     putc('{', stdout);
@@ -75,6 +76,25 @@ Token *create_token(enum TokenType type, union TokenValue value) {
     r->str_on_heap = false;
     return r;
 }
+
+
+Token *copy_token(Token *token) {
+    Token *r = (Token*) malloc(sizeof(Token));
+    r->type = token->type;
+    r->str_on_heap = token->str_on_heap;
+
+    if(r->type == TokenType_String) {
+        r->str_on_heap = true;
+        r->value.as_string = malloc(sizeof(char) * (strlen(token->value.as_string)+1)); //+1 pour null
+        strcpy(r->value.as_string, token->value.as_string);
+    }
+    else {
+        r->value = token->value;
+    }
+
+    return r;
+}
+
 
 void destroy_token(Token *t) {
     if(t == NULL) return;
